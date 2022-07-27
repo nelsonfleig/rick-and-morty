@@ -12,6 +12,7 @@
     "esModuleInterop": true,
     "alwaysStrict": true,
     "strictNullChecks": true,
+    "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
