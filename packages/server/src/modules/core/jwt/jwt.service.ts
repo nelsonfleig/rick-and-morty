@@ -11,7 +11,6 @@ export class JwtService {
   verifyJwt<T>(token: string, signingKey: 'accessTokenSecret'): T | null {
     try {
       const decoded = jwt.verify(token, config.get(signingKey)) as T;
-
       return decoded;
     } catch (e) {
       return null;

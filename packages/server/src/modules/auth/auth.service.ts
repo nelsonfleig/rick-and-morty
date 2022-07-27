@@ -13,6 +13,7 @@ export class AuthService {
   constructor(private userService: UserService, private jwtService: JwtService) {}
 
   async me(id: number) {
+    if (!id) return null;
     return this.userService.findById(id);
   }
 
@@ -40,5 +41,10 @@ export class AuthService {
       username: data.username.toLowerCase().trim(),
       password,
     });
+  }
+
+  async logout(res: Response) {
+    setCookie(res, 'accessToken', '');
+    return true;
   }
 }

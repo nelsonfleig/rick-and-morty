@@ -1,7 +1,6 @@
 import { Response } from 'express';
-import { Body, Get, HttpCode, JsonController, Post, Res, UseBefore } from 'routing-controllers';
+import { Body, Delete, Get, HttpCode, JsonController, Post, Res } from 'routing-controllers';
 import { Service } from 'typedi';
-import { IsAuth } from '@/middleware/is-auth.middleware';
 import { AuthService } from './auth.service';
 import { LoginDTO } from './dto/login.dto';
 import { RegisterDTO } from './dto/register.dto';
@@ -12,9 +11,8 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Get('/me')
-  @UseBefore(IsAuth)
   me(@Res() res: Response) {
-    return this.authService.me(res.locals.user.id);
+    return this.authService.me(res.locals.user?.id);
   }
 
   @Post('/login')
@@ -26,5 +24,11 @@ export class AuthController {
   @Post('/register')
   register(@Body() body: RegisterDTO) {
     return this.authService.register(body);
+  }
+
+  @HttpCode(204)
+  @Delete('/logout')
+  logout(@Res() res: Response) {
+    return this.authService.logout(res);
   }
 }

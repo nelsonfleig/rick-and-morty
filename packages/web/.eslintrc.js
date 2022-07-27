@@ -26,6 +26,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react/require-default-props': 'off',
     'react/prop-types': 'off',
+    'react/no-array-index-key': 'off',
     'import/no-extraneous-dependencies': [
       'error',
       { devDependencies: false, optionalDependencies: false, peerDependencies: false },

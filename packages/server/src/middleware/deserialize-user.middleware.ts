@@ -7,7 +7,6 @@ import { JwtService } from '@/modules/core/jwt/jwt.service';
 @Service()
 @Middleware({ type: 'before' })
 export class DeserializeUser implements ExpressMiddlewareInterface {
-  // interface implementation is optional
   constructor(private jwtService: JwtService) {}
 
   use(request: Request, response: Response, next: NextFunction): any {
