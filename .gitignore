@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+# Postgres data
+.dbdata
+
+# Env
+.env
+
+# Misc
+.eslintcache
+yarn-error.log

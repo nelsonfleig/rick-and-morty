@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  rick-and-morty-database:
+    container_name: rick-and-morty-database
+    image: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - .dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: 'rick-and-morty-db'
+      POSTGRES_PASSWORD: '1234'
+      POSTGRES_USER: 'postgres'
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      default:
+        aliases:
+          - postgres.service

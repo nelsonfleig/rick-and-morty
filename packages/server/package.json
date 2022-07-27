@@ -1,0 +1,52 @@
+{
+  "name": "@rick-and-morty/server",
+  "version": "1.0.0",
+  "description": "Backend for rick and morty app",
+  "author": "Nelson Fleig",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint ./src",
+    "build": "tsc && tscpaths -p tsconfig.json -s ./src -o ./dist && yarn copy-files",
+    "build-local": "yarn clean && yarn build && yarn copy-files",
+    "check-types": "tsc --pretty --noEmit",
+    "start:build": "yarn build && node -r tsconfig-paths/register ./dist/src/index.js",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --files  src/index.ts",
+    "clean": "rimraf dist/",
+    "copy-files": "copyfiles -u 1 src/**/*.hbs ./dist"
+  },
+  "devDependencies": {
+    "@types/config": "^0.0.41",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node-fetch": "^2.6.2",
+    "prisma": "~3.12.0",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.14.1",
+    "tscpaths": "^0.0.9",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "@prisma/client": "~3.12.0",
+    "@types/morgan": "^1.9.3",
+    "argon2": "^0.28.5",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "config": "^3.3.7",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "pino": "^7.9.2",
+    "pino-pretty": "^7.5.4",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.9.0",
+    "tslib": "^2.3.1",
+    "typedi": "^0.10.0"
+  }
+}

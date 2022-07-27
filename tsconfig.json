@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "moduleResolution": "Node",
+    "module": "CommonJS",
+    "target": "esnext",
+    "sourceMap": true,
+    "lib": ["esnext"],
+    "strict": true,
+    "esModuleInterop": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@rick-and-morty/*": ["packages/*/src/index.ts"]
+    }
+  },
+  "references": [
+    {
+      "path": "packages/server"
+    }
+  ],
+  "exclude": ["node_modules", "dist", "*.d.ts", ".eslintrc.js"]
+}

@@ -1,0 +1,9 @@
+# build
+dist
+*.tsbuildinfo
+
+# Env
+.env
+
+# Misc
+yarn-error.log

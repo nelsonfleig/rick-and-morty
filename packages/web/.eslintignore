@@ -1,0 +1,6 @@
+coverage/
+dist/
+jest/
+node_modules/
+public/
+.eslintrc.js
