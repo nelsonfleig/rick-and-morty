@@ -3,6 +3,7 @@ import { Service } from 'typedi';
 import { LoginDTO } from '../auth/dto/login.dto';
 import { RegisterDTO } from '../auth/dto/register.dto';
 import { PrismaService } from '../core/prisma/prisma.service';
+import { userSelectFields } from './helpers/user-select-fields.helper';
 
 @Service()
 export class UserService {
@@ -11,6 +12,7 @@ export class UserService {
   create(data: RegisterDTO) {
     return this.prismaService.user.create({
       data,
+      select: userSelectFields,
     });
   }
 
@@ -19,6 +21,7 @@ export class UserService {
       where: {
         id,
       },
+      select: userSelectFields,
     });
   }
 
@@ -34,6 +37,7 @@ export class UserService {
           },
         ],
       },
+      select: userSelectFields,
     });
   }
 
@@ -57,6 +61,7 @@ export class UserService {
           set: [...user.favorites, characterId],
         },
       },
+      select: userSelectFields,
     });
   }
 
@@ -80,6 +85,7 @@ export class UserService {
           set: user.favorites.filter((id) => id !== characterId),
         },
       },
+      select: userSelectFields,
     });
   }
 }
