@@ -37,7 +37,6 @@ export class UserService {
           },
         ],
       },
-      select: userSelectFields,
     });
   }
 
