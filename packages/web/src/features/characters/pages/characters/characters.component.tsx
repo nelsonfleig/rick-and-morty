@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Container, FlexContainer, Loader, Section } from '../../../../components/ui/ui.styles';
 import { useAuth } from '../../../../hooks/useAuth';
+import { useImagePreloader } from '../../../../hooks/useImagePreloader';
 import { useGetCharactersListQuery } from '../../../../redux/characters/character.api';
 import { CharacterCard } from '../../components/character-card/character-card.component';
 import { Pagination } from '../../components/pagination/pagination.component';
@@ -11,8 +12,11 @@ export const Characters = () => {
   const [page, setPage] = useState(1);
   const { data, isFetching } = useGetCharactersListQuery(page);
   const { user } = useAuth();
+  const { imagesPreloaded } = useImagePreloader(
+    data?.data.length ? data.data.map((c) => c.image) : []
+  );
 
-  if (isFetching)
+  if (isFetching || !imagesPreloaded)
     return (
       <FlexContainer fullHeight>
         <Loader size="lg" />

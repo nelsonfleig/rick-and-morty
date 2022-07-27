@@ -10,12 +10,14 @@ import {
   DetailInfo,
   DetailWrapper,
 } from './character-detail.styles';
+import { useImagePreloader } from '../../../../hooks/useImagePreloader';
 
 export const CharacterDetail = () => {
   const { id } = useParams<{ id: string }>();
   const { data, isFetching } = useGetCharacterByIdQuery(parseInt(id, 10));
+  const { imagesPreloaded } = useImagePreloader(data?.image ? [data.image] : []);
 
-  if (!data || isFetching)
+  if (!data || isFetching || !imagesPreloaded)
     return (
       <FlexContainer fullHeight>
         <Loader size="lg" />
