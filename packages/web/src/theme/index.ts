@@ -5,7 +5,7 @@ const DEFAULT_SPACING = 4;
 
 export const theme: DefaultTheme = {
   colors: {
-    // Color Palette
+    offWhite: '#f9f9f9',
     primary: '#7a04eb',
     primaryHover: '#6006b7',
     primaryForbidden: '#977cb1',
