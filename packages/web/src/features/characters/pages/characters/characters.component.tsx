@@ -35,7 +35,7 @@ export const Characters = () => {
   return (
     <Container>
       <Section>
-        <CharacterGrid>
+        <CharacterGrid id="character-grid">
           {data?.data.map((character) => (
             <CharacterCard
               key={character.id}
