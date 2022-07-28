@@ -19,7 +19,6 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'react/no-unescaped-entities': 'off',
-    'no-unused-vars': 'error',
     'import/extensions': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',
@@ -27,9 +26,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/prop-types': 'off',
     'react/no-array-index-key': 'off',
-    'import/no-extraneous-dependencies': [
-      'error',
-      { devDependencies: false, optionalDependencies: false, peerDependencies: false },
-    ],
+    '@typescript-eslint/naming-convention': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };

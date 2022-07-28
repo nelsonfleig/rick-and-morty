@@ -4,3 +4,5 @@ jest/
 node_modules/
 public/
 .eslintrc.js
+setupTests.ts
+jest.config.ts

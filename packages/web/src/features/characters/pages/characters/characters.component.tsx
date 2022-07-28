@@ -7,6 +7,7 @@ import { CharacterCard } from '../../components/character-card/character-card.co
 import { Pagination } from '../../components/pagination/pagination.component';
 import { checkIsFavorite } from '../../helpers/check-is-favorite.helper';
 import { CharacterGrid } from './characters.styles';
+import { ErrorMessage } from '../../../error/components/error-message.component';
 
 export const Characters = () => {
   const [page, setPage] = useState(1);
@@ -23,6 +24,14 @@ export const Characters = () => {
       </FlexContainer>
     );
 
+  if ((!data && !isFetching) || !data?.data.length) {
+    return (
+      <FlexContainer fullHeight>
+        <ErrorMessage message="There are no items to show" />
+      </FlexContainer>
+    );
+  }
+
   return (
     <Container>
       <Section>
@@ -35,7 +44,7 @@ export const Characters = () => {
             />
           ))}
         </CharacterGrid>
-        <Pagination currentPage={page} totalPages={data!.meta.pages} onPageChange={setPage} />
+        <Pagination currentPage={page} totalPages={data.meta.pages} onPageChange={setPage} />
       </Section>
     </Container>
   );

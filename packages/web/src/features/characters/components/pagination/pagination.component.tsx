@@ -9,7 +9,6 @@ type PaginationItemProps = {
 
 const PaginationItem = ({ page, currentPage, onPageChange }: PaginationItemProps) => {
   const clsxProps = {
-    // eslint-disable-next-line @typescript-eslint/naming-convention
     'page-item': true,
     active: page === currentPage,
   };

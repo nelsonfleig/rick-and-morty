@@ -6,17 +6,6 @@ const DEFAULT_SPACING = 4;
 export const theme: DefaultTheme = {
   colors: {
     // Color Palette
-    darkGreen: '#264653',
-    lightGreen: '#73CB51',
-    red: '#F57656',
-    yellow: '#e9c46a',
-    orange: '#f4a261',
-    darkGray: '#555',
-    offWhite: '#f9f9f9',
-    // Hover
-    redHover: '#E76F51',
-    redForbidden: '#B5573F',
-    lightGreenHover: '#57993D',
     primary: '#7a04eb',
     primaryHover: '#6006b7',
     primaryForbidden: '#977cb1',
